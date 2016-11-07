@@ -13,3 +13,5 @@ q3 :                  Answer to the third question.
 ```
 
 Please try by yourself, before reading the solution. A good starting point would be looking at the `initial_code_redone` and `minimal_code` folders.
+
+Be aware that the `q1`, `q2` and `q3` code is written like the course's code (multiple files), not the minimal examples (one file).
