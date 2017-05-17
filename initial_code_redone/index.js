@@ -6,7 +6,7 @@ var requestHandler = require("./request_handler")
 // We declare an associative array
 var handle = {};
 
-// We had a couple of values to the array
+// We add a couple of values to the array
 // {'/':        [Function: start],
 //  '/start':   [Function: start],
 //  '/upload':  [Function: upload],
