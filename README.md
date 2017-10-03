@@ -1,17 +1,18 @@
 # NodeJS-TDm
 
-This is the code for the fifth TDm, using Node.js.
+Voici le code du TDm de Node.js.
 
-The repository is structured as follows :
+Le dépôt est structuré comme il suit :
+
 ```
-initial_code :        The course's code, provided as is.
-initial_code_redone : The course's code, rewritten by myself, and commented.
-minimal_code :        The minimal code (without separation) to run a server.
-q1 :                  Answer to the first question.
-q2 :                  Answer to the second question.
-q3 :                  Answer to the third question.
+initial_code :        Le code du cours, sans modifications.
+initial_code_redone : Le code du cours, réécrit (par moi) et commenté.
+minimal_code :        Le code minimum (dans un seul fichier) pour faire tourner un serveur.
+q1 :                  Réponse à la 1ère question.
+q2 :                  Réponse à la 2ème question.
+q3 :                  Réponse à la 3ème question.
 ```
 
-Please try by yourself, before reading the solution. A good starting point would be looking at the `initial_code_redone` and `minimal_code` folders.
+Je conseille fortement d'essayer de faire les exercices par vous même avant de regarder la correction. Un bon début est de regarder (et essayer de comprendre) les dossiers `initial_code_redone` et `minimal_code`.
 
-Be aware that the `q1`, `q2` and `q3` code is written like the course's code (multiple files), not the minimal examples (one file).
+Attention : les codes dans `q1`, `q2` et `q3` sont écrit avec la même structure que le code du cours (plusieurs fichiers), et non comme l'exemple minimaliste (un seul fichier).

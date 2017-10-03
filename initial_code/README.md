@@ -1,1 +1,1 @@
-This is the course's code, untouched.
+Le code du cours, comme présenté dans les diapos.
