@@ -1,10 +1,12 @@
 var fs = require("fs");
 var formidable = require("formidable");
 
+// Ce fichier contient le code à proprement parler. Ces fonctions sont appelés
+// par router.js lorsque le client envoie une requête ( = tape une url).
 
 function start(response) {
     console.log("\"start\" called.");
-    // This function (writeHead) explicitly send the header
+    // writeHead permet d'envoyer explicitement le header.
     response.writeHead(200, {"Content-type": "text/HTML"});
     var body =  '<html>'+
                 '<head>'+
@@ -19,8 +21,9 @@ function start(response) {
                 '</form>' +
                 '</head>' +
                 '</html>';
-    // End of the stream. The function end() can take an argument, which is the last bit of information to send.
-    // We could have used :
+    // Fin du flux. la fonction end() peut prendre un argument, qui sera les 
+    // dernières informations envoyées dans le flux avant de le fermer.
+    // Nous aurions pu utiliser, à la place :
     // response.write(body);
     // response.end();
     response.end(body);
@@ -29,13 +32,13 @@ function start(response) {
 function upload(response, request) {
     console.log("\"upload\" called.");
 
-    // We create a new formidable Form
+    // Un formulaire Formidable est créé
     var form = new formidable.IncomingForm();
 
     form.parse(request, function(error, fields, files) {
-        // We upload and name the uploaded file "test.png"
+        // On upload et nomme le fichier " test.png "
         fs.rename(files.upload.path, "test.png", function(err) {
-            // if it already exists, we remove the old file (unlink)
+            // Si le fichier existe déjà, on efface l'ancien (fonction unlink())
             if (err) {
                 fs.unlink("test.png");
                 fs.rename(files.upload.path, "test.png");
@@ -52,7 +55,7 @@ function upload(response, request) {
 function show(response) {
     console.log("\"show\" called.");
 
-    // We read the file
+    // le fichier est lu
     fs.readFile("test.png", "binary", function(error, file) {
         if(error) {
             response.writeHead(200, {"Content-type": "text/plain"});

@@ -1,24 +1,27 @@
 var http = require('http');
 var url = require('url');
 
-function start(route, handle) {
+// Cette fonction est appelée au démarrage du serveur.
 
+function start(route, handle) {
+    // Cette fonction permet d'appeler la page voulue. Le paramètre request est la requête
+    // envoyée par le client (l'url que vous avez tapé dans la barre d'adresse).
     function onRequest(request, response) {
-        // We parse the path in the request
+        // Le chemin est parsé à partir de la requête.
+        // Exemple : A partir de " http://localhost:8080/start ", pathanme = start. 
         var pathname = url.parse(request.url).pathname;
         console.log('Request received.');
-        //We call the route method (passed as a parameter to the start function)
+        // La fonction route est appellée (voir router.js).
         route(handle, pathname, response, request);
     }
 
-    // We create a server, and we pass the onRequest method.
-    // The method passed as a parameter will be called everytime a request is sent to the server.
+    // La création du serveur est faite ici, avec la fonction onRequest() passée en callback.
+    // Cette fonction sera appelée chaque fois qu'une requête est envoyée au serveur.
     
-    // example : you want to access a specific page, " start "
-    // you use the url http://localhost:8080/start
-    // It calls the method onRequest
-    // The adress is parsed into pathname, which gives us pathname = start
-    // the route method is called
+    // exemple : vous voulez accéder à la page " start ". Vous tapez donc l'url
+    // " http://localhost:8080/start ". Cet requête appelle la méthode onRequest()
+    // L'adresse est parsée dans la varibla pathname, ce qui donne "start"
+    // La fonction route() est ensuite appelée.
     http.createServer(onRequest).listen(8080);
     console.log("Server started.");
 }
